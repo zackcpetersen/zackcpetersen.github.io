@@ -1,6 +1,7 @@
 name: Build and Deploy
 permissions:
   contents: write
+  repository-projects: read
 env:
   CI: false
   GITHUB_USERNAME: ${{ github.repository_owner }}
