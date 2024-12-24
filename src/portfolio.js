@@ -30,7 +30,7 @@ const greeting = {
   username: "Zack Petersen",
   title: "Hi all, I'm Zack",
   subTitle: emoji(
-    "A passionate Senior Software Engineer specializing in Backend Development, Cloud Infrastructure, and Automation 🚀 with experience in Go, Python, AWS, and modern DevOps practices."
+    "A passionate Senior Software Engineer specializing in Automation, Backend Development, and Cloud Infrastructure 🚀 with experience in Go, Python, AWS, and modern DevOps practices."
   ),
   resumeLink:
     "https://docs.google.com/document/d/1LVXZEjN5CWwisqJEA8RNt8qSfRODkcRJ", // Set to empty to hide the button
