@@ -59,13 +59,9 @@ const skillsSection = {
   subTitle: "SENIOR SOFTWARE ENGINEER SPECIALIZING IN BACKEND & AUTOMATION",
   // TODO update emojis
   skills: [
-    emoji(
-      "⚡ Build and scale microservices architectures with Go and Python"
-    ),
+    emoji("⚡ Build and scale microservices architectures with Go and Python"),
     emoji("⚡ Design and implement cloud infrastructure using AWS and GCP"),
-    emoji(
-      "⚡ Develop robust automation and deployment pipelines"
-    )
+    emoji("⚡ Develop robust automation and deployment pipelines")
   ],
 
   /* Make Sure to include correct Font Awesome Classname to view your icon
@@ -103,13 +99,13 @@ const educationInfo = {
       // TODO
       logo: require("./assets/images/utahLogo.png"),
       subHeader: "Bachelor of Science, Business",
-      duration: "August 2014 - May 2017",
+      duration: "August 2014 - May 2017"
       // desc: "Participated in the research of XXX and published 3 papers.",
       // descBullets: [
       //   "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
       //   "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
       // ]
-    },
+    }
   ]
 };
 
@@ -145,7 +141,7 @@ const workExperiences = {
       // TODO
       desc: "Fixed a lot of shit, led the initiative to clean up so we can scale better",
       descBullets: [
-        "Build backend features that allowed internal adjusters to save 100s of hours of manual work",
+        "Build backend features that allowed internal adjusters to save 100s of hours of manual work"
       ]
     },
     {
@@ -159,7 +155,7 @@ const workExperiences = {
         "Scaled critical features in Go microservices to support 250,000+ users",
         "Expanded test coverage by 60% and implemented comprehensive OAuth security",
         "Designed high-performance integration system processing 3M+ daily entries",
-        "Built scalable notifications infrastructure for millions of daily communications",
+        "Built scalable notifications infrastructure for millions of daily communications"
       ]
     },
     {
@@ -173,9 +169,9 @@ const workExperiences = {
         "Led and mentored team of junior engineers",
         "Architected AWS ECS infrastructure for SaaS platform",
         "Implemented CI/CD pipelines reducing deployment times by 75%",
-        "Modernized infrastructure using Terraform IaC",
+        "Modernized infrastructure using Terraform IaC"
       ]
-    },
+    }
   ]
 };
 
@@ -197,7 +193,7 @@ const bigProjects = {
       // TODO
       image: require("./assets/images/saayaHealthLogo.webp"),
       projectName: "Kiyote",
-      projectDesc: "Lead Management SaaS platform for the education sector",
+      projectDesc: "Lead Management SaaS platform for the education sector"
       // footerLink: [
       //   {
       //     name: "Visit Website",
@@ -209,7 +205,8 @@ const bigProjects = {
     {
       image: require("./assets/images/meritLogo.png"),
       projectName: "Merit Notifications",
-      projectDesc: "Designed a scalable notifications solution capable of dispatching millions of daily communications",
+      projectDesc:
+        "Designed a scalable notifications solution capable of dispatching millions of daily communications"
       // footerLink: [
       //   {
       //     name: "Visit Website",
