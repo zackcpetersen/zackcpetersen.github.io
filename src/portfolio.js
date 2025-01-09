@@ -102,7 +102,7 @@ https://fontawesome.com/icons?d=gallery */
     {
       skillName: "aws",
       fontAwesomeClassname: "fab fa-aws"
-    },
+    }
   ],
   display: true // Set false to hide this section, defaults to true
 };
@@ -143,7 +143,7 @@ const techStack = {
     {
       Stack: "Data Engineering",
       progressPercentage: "80%"
-    },
+    }
   ],
   displayCodersrank: false // Set true to display codersrank badges section need to changes your username in src/containers/skillProgress/skillProgress.js:17:62, defaults to false
 };
@@ -163,7 +163,7 @@ const workExperiences = {
         "Developed AI features reducing claims adjuster workload by 5+ hours weekly",
         "Architected data pipeline interfaces enabling scalable analytics operations",
         "Spearheaded data warehouse evaluation and implementation strategy",
-        "Established engineering standards driving measurable quality improvements",
+        "Established engineering standards driving measurable quality improvements"
       ]
     },
     {
