@@ -57,11 +57,10 @@ const socialMediaLinks = {
 const skillsSection = {
   title: "What I do",
   subTitle: "SENIOR SOFTWARE ENGINEER SPECIALIZING IN BACKEND & AUTOMATION",
-  // TODO update emojis
   skills: [
-    emoji("⚡ Build and scale microservices architectures with Go and Python"),
-    emoji("⚡ Design and implement cloud infrastructure using AWS and GCP"),
-    emoji("⚡ Develop robust automation and deployment pipelines")
+    emoji("🏗️ Build and scale microservices architectures with Go and Python"),
+    emoji("🚀 Design and implement cloud infrastructure using AWS and GCP"),
+    emoji("♾ Develop robust automation and deployment pipelines")
   ],
 
   /* Make Sure to include correct Font Awesome Classname to view your icon
@@ -69,22 +68,41 @@ https://fontawesome.com/icons?d=gallery */
 
   softwareSkills: [
     {
-      skillName: "sql-database",
+      skillName: "python",
+      fontAwesomeClassname: "fab fa-python"
+    },
+    {
+      skillName: "golang",
+      fontAwesomeClassname: "fa-brands fa-golang"
+    },
+    {
+      skillName: "ci/cd",
+      fontAwesomeClassname: "fa-solid fa-code-merge"
+    },
+    {
+      skillName: "sql database",
       fontAwesomeClassname: "fas fa-database"
+    },
+    {
+      skillName: "data engineering",
+      fontAwesomeClassname: "fas fa-gears"
+    },
+    {
+      skillName: "api",
+      fontAwesomeClassname: "fa-solid fa-code"
+    },
+    {
+      skillName: "docker",
+      fontAwesomeClassname: "fab fa-docker"
+    },
+    {
+      skillName: "terraform",
+      fontAwesomeClassname: "fa fa-cubes"
     },
     {
       skillName: "aws",
       fontAwesomeClassname: "fab fa-aws"
     },
-    {
-      skillName: "python",
-      fontAwesomeClassname: "fab fa-python"
-    },
-    {
-      skillName: "docker",
-      fontAwesomeClassname: "fab fa-docker"
-    }
-    // TODO golang
   ],
   display: true // Set false to hide this section, defaults to true
 };
@@ -96,7 +114,6 @@ const educationInfo = {
   schools: [
     {
       schoolName: "University Of Utah",
-      // TODO
       logo: require("./assets/images/utahLogo.png"),
       subHeader: "Bachelor of Science, Business",
       duration: "August 2014 - May 2017"
@@ -113,16 +130,20 @@ const educationInfo = {
 
 const techStack = {
   viewSkillBars: true, //Set it to true to show Proficiency Section
-  // TODO
   experience: [
     {
       Stack: "Backend",
       progressPercentage: "90%"
     },
+
     {
-      Stack: "Automation",
-      progressPercentage: "85%"
-    }
+      Stack: "AI/Automation",
+      progressPercentage: "80%"
+    },
+    {
+      Stack: "Data Engineering",
+      progressPercentage: "80%"
+    },
   ],
   displayCodersrank: false // Set true to display codersrank badges section need to changes your username in src/containers/skillProgress/skillProgress.js:17:62, defaults to false
 };
@@ -135,19 +156,19 @@ const workExperiences = {
     {
       role: "Senior Software Engineer I",
       company: "Reserv",
-      // TODO
       companylogo: require("./assets/images/reservLogo.png"),
       date: "Oct 2024 - Present",
-      // TODO
-      desc: "Fixed a lot of shit, led the initiative to clean up so we can scale better",
+      desc: "Led AI development and data infrastructure initiatives",
       descBullets: [
-        "Build backend features that allowed internal adjusters to save 100s of hours of manual work"
+        "Developed AI features reducing claims adjuster workload by 5+ hours weekly",
+        "Architected data pipeline interfaces enabling scalable analytics operations",
+        "Spearheaded data warehouse evaluation and implementation strategy",
+        "Established engineering standards driving measurable quality improvements",
       ]
     },
     {
       role: "Senior Software Engineer (SE-3)",
       company: "Merit International",
-      // TODO
       companylogo: require("./assets/images/meritLogo.jpeg"),
       date: "June 2022 - Oct 2024",
       desc: "Led development of core services and infrastructure scaling",
@@ -161,7 +182,6 @@ const workExperiences = {
     {
       role: "Software Engineer III",
       company: "Neutron Interactive",
-      // TODO
       companylogo: require("./assets/images/neutronLogo.png"),
       date: "May 2021 - June 2022",
       desc: "Led team development and infrastructure modernization",
@@ -191,28 +211,28 @@ const bigProjects = {
   projects: [
     {
       // TODO
-      image: require("./assets/images/saayaHealthLogo.webp"),
+      image: require("./assets/images/indigo_innovations.jpeg"),
       projectName: "Kiyote",
-      projectDesc: "Lead Management SaaS platform for the education sector"
-      // footerLink: [
-      //   {
-      //     name: "Visit Website",
-      //     url: "http://saayahealth.com/"
-      //   }
-      //   //  you can add extra buttons here.
-      // ]
+      projectDesc: "Lead Management SaaS platform for the education sector",
+      footerLink: [
+        {
+          name: "Visit Website",
+          url: "https://www.indigoinnovationsinc.com/"
+        }
+        //  you can add extra buttons here.
+      ]
     },
     {
       image: require("./assets/images/meritLogo.png"),
       projectName: "Merit Notifications",
       projectDesc:
-        "Designed a scalable notifications solution capable of dispatching millions of daily communications"
-      // footerLink: [
-      //   {
-      //     name: "Visit Website",
-      //     url: "http://nextu.se/"
-      //   }
-      // ]
+        "Designed a scalable notifications solution capable of dispatching millions of daily communications",
+      footerLink: [
+        {
+          name: "Visit Website",
+          url: "https://www.merits.com/"
+        }
+      ]
     }
   ],
   display: true // Set false to hide this section, defaults to true
