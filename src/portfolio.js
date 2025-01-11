@@ -211,7 +211,7 @@ const bigProjects = {
   projects: [
     {
       // TODO
-      image: require("./assets/images/indigo_innovations.jpeg"),
+      image: require("./assets/images/kiyote-stacked.png"),
       projectName: "Kiyote",
       projectDesc: "Lead Management SaaS platform for the education sector",
       footerLink: [
