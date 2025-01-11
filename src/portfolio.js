@@ -1,13 +1,6 @@
 /* Change this file to get your personal Portfolio */
 
 // To change portfolio colors globally go to the  _globalColor.scss file
-// TODO
-//  update favicon (fox, my own memoji)
-//  figure out resume
-//  add more items under "what I do"
-//  add more proficiencies
-//  fix logos - kiyote
-//  use zackcpetersen.com domain - instructions in readme
 
 import emoji from "react-easy-emoji";
 import splashAnimation from "./assets/lottie/splashAnimation"; // Rename to your file name for custom animation
@@ -29,9 +22,8 @@ const illustration = {
 const greeting = {
   username: "Zack Petersen",
   title: "Hi all, I'm Zack",
-  subTitle: emoji(
-    "A passionate Senior Software Engineer specializing in Automation, Backend Development, and Cloud Infrastructure 🚀 with experience in Go, Python, AWS, and modern DevOps practices."
-  ),
+  subTitle:
+    "Senior Software Engineer with extensive experience architecting scalable data infrastructure, AI systems, and cloud-native solutions, driving operational efficiency through innovative engineering practices and technical leadership across multiple high-growth startups.",
   resumeLink:
     "https://docs.google.com/document/d/1LVXZEjN5CWwisqJEA8RNt8qSfRODkcRJ", // Set to empty to hide the button
   displayGreeting: true // Set false to hide this section, defaults to true
