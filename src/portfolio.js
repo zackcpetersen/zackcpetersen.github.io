@@ -23,7 +23,7 @@ const greeting = {
   username: "Zack Petersen",
   title: "Hi all, I'm Zack",
   subTitle:
-    "Senior Software Engineer with extensive experience architecting scalable data infrastructure, AI systems, and cloud-native solutions, driving operational efficiency through innovative engineering practices and technical leadership across multiple high-growth startups.",
+    "Driven Senior Software Engineer passionate about building scalable systems that make life easier for users and teams. I specialize in Python, Go, and cloud tech (GCP/AWS), and thrive when scaling products, optimizing data pipelines, or mentoring engineers. Recently, I've doubled claims accuracy, reduced workloads by 40+ hours monthly, and explored generative AI with tools like LangChain. I'm always learning, innovating, and building - not just software, but culture and opportunity.",
   resumeLink:
     "https://docs.google.com/document/d/1LVXZEjN5CWwisqJEA8RNt8qSfRODkcRJ", // Set to empty to hide the button
   displayGreeting: true // Set false to hide this section, defaults to true
@@ -48,11 +48,13 @@ const socialMediaLinks = {
 
 const skillsSection = {
   title: "What I do",
-  subTitle: "SENIOR SOFTWARE ENGINEER SPECIALIZING IN BACKEND & AUTOMATION",
+  subTitle:
+    "SENIOR SOFTWARE ENGINEER SPECIALIZING IN DATA & PLATFORM ENGINEERING",
   skills: [
     emoji("🏗️ Build and scale microservices architectures with Go and Python"),
     emoji("🚀 Design and implement cloud infrastructure using AWS and GCP"),
-    emoji("♾ Develop robust automation and deployment pipelines")
+    emoji("📊 Architect data pipelines and warehouses with DBT and Terraform"),
+    emoji("🤖 Develop AI-powered features using LangChain and generative AI")
   ],
 
   /* Make Sure to include correct Font Awesome Classname to view your icon
@@ -68,32 +70,44 @@ https://fontawesome.com/icons?d=gallery */
       fontAwesomeClassname: "fa-brands fa-golang"
     },
     {
-      skillName: "ci/cd",
-      fontAwesomeClassname: "fa-solid fa-code-merge"
-    },
-    {
-      skillName: "sql database",
+      skillName: "postgresql",
       fontAwesomeClassname: "fas fa-database"
     },
     {
-      skillName: "data engineering",
-      fontAwesomeClassname: "fas fa-gears"
+      skillName: "aws",
+      fontAwesomeClassname: "fab fa-aws"
     },
     {
-      skillName: "api",
-      fontAwesomeClassname: "fa-solid fa-code"
+      skillName: "gcp",
+      fontAwesomeClassname: "fab fa-google"
     },
     {
       skillName: "docker",
       fontAwesomeClassname: "fab fa-docker"
     },
     {
+      skillName: "kubernetes",
+      fontAwesomeClassname: "fas fa-dharmachakra"
+    },
+    {
       skillName: "terraform",
       fontAwesomeClassname: "fa fa-cubes"
     },
     {
-      skillName: "aws",
-      fontAwesomeClassname: "fab fa-aws"
+      skillName: "datadog",
+      fontAwesomeClassname: "fas fa-chart-line"
+    },
+    {
+      skillName: "django",
+      fontAwesomeClassname: "fab fa-python"
+    },
+    {
+      skillName: "kafka",
+      fontAwesomeClassname: "fas fa-stream"
+    },
+    {
+      skillName: "ci/cd",
+      fontAwesomeClassname: "fa-solid fa-code-merge"
     }
   ],
   display: true // Set false to hide this section, defaults to true
@@ -146,42 +160,54 @@ const workExperiences = {
   display: true, //Set it to true to show workExperiences Section
   experience: [
     {
-      role: "Senior Software Engineer I",
+      role: "Senior Backend Engineer - Data",
       company: "Reserv",
       companylogo: require("./assets/images/reservLogo.png"),
       date: "Oct 2024 - Present",
-      desc: "Led AI development and data infrastructure initiatives",
+      desc: "Led AI development and data infrastructure initiatives, collaborating directly with CTO",
       descBullets: [
-        "Developed AI features reducing claims adjuster workload by 5+ hours weekly",
-        "Architected data pipeline interfaces enabling scalable analytics operations",
-        "Spearheaded data warehouse evaluation and implementation strategy",
-        "Established engineering standards driving measurable quality improvements"
+        "Developed features for flagship Copilot product that doubled claims accuracy and reduced manual work for adjusters by up to 10 hours weekly",
+        "Architected and optimized scalable data pipelines and warehouse solutions, reducing claims adjuster workload by 40+ hours monthly and cutting DBT model runtimes by 28%",
+        "Built an AWS Textract-based pipeline that significantly increased context awareness of AI tools, enabling faster and more accurate claims resolutions for 100% of claims",
+        "Reduced Docker image sizes by up to 76% and improved security posture, streamlining deployments and mitigating vulnerabilities across multiple repositories"
       ]
     },
     {
-      role: "Senior Software Engineer (SE-3)",
-      company: "Merit International",
+      role: "Senior Backend Engineer - Platform",
+      company: "Merit International Inc",
       companylogo: require("./assets/images/meritLogo.jpeg"),
       date: "June 2022 - Oct 2024",
       desc: "Led development of core services and infrastructure scaling",
       descBullets: [
-        "Scaled critical features in Go microservices to support 250,000+ users",
-        "Expanded test coverage by 60% and implemented comprehensive OAuth security",
-        "Designed high-performance integration system processing 3M+ daily entries",
-        "Built scalable notifications infrastructure for millions of daily communications"
+        "Successfully scaled critical features including user authentication, notifications, data ingestion, and graph management in core Go microservices from initial deployment to a user base exceeding 250,000",
+        "Expanded integration test coverage by 60% across all core services, enhancing system reliability and reducing the risk of cross-service failures",
+        "Developed a comprehensive integration framework incorporating services like Snowflake and Fivetran, designing a high-performance system that synchronizes over 3 million data entries per day",
+        "Transformed the Notifications microservice from prototype to robust production infrastructure, creating a scalable solution capable of dispatching millions of daily communications"
       ]
     },
     {
-      role: "Software Engineer III",
+      role: "Senior Backend Engineer - Platform",
       company: "Neutron Interactive",
       companylogo: require("./assets/images/neutronLogo.png"),
       date: "May 2021 - June 2022",
-      desc: "Led team development and infrastructure modernization",
+      desc: "Led team expansion and infrastructure modernization",
       descBullets: [
-        "Led and mentored team of junior engineers",
-        "Architected AWS ECS infrastructure for SaaS platform",
-        "Implemented CI/CD pipelines reducing deployment times by 75%",
-        "Modernized infrastructure using Terraform IaC"
+        "Recruited, onboarded, and guided two junior engineers, enabling strategic focus on system architecture and development while fostering a collaborative environment",
+        "Architected and built AWS ECS infrastructure, facilitating streamlined container orchestration for the SaaS platform and improving resource utilization",
+        "Designed and implemented a comprehensive GitHub Actions CI/CD pipeline from the ground up, automating build, test, and deployment processes and reducing release cycle times by 75%",
+        "Transitioned from manual AWS console management to comprehensive Terraform-based Infrastructure as Code (IaC), ensuring consistent and version-controlled resource provisioning"
+      ]
+    },
+    {
+      role: "Backend Engineer",
+      company: "Neutron Interactive",
+      companylogo: require("./assets/images/neutronLogo.png"),
+      date: "May 2020 - May 2021",
+      desc: "Led system containerization and revenue-driving feature development",
+      descBullets: [
+        "Led the transformation of a legacy monolithic backend into a fully containerized architecture using Docker, enabling rapid, consistent deployments and improving environment portability",
+        "Engineered and established over 10 pivotal features for the SaaS platform, including the primary matching algorithm responsible for generating over 80% of company revenue",
+        "Developed comprehensive unit and integration test suites, achieving over 80% code coverage across the entire system, ensuring robust and reliable software delivery"
       ]
     }
   ]
@@ -202,17 +228,21 @@ const bigProjects = {
   subtitle: "SOME STARTUPS AND COMPANIES THAT I HELPED TO CREATE THEIR TECH",
   projects: [
     {
-      // TODO
-      image: require("./assets/images/kiyote-stacked.png"),
-      projectName: "Kiyote",
-      projectDesc: "Lead Management SaaS platform for the education sector",
+      image: require("./assets/images/reserv_logo_transparent.png"),
+      projectName: "Adjuster Copilot",
+      projectDesc:
+        "AI-powered claims processing tool that doubled claims accuracy and reduces manual work for adjusters by over 40 hours weekly through advanced data pipelines and context-aware AI features",
       footerLink: [
         {
           name: "Visit Website",
-          url: "https://www.indigoinnovationsinc.com/"
+          url: "https://www.reserv.com/"
         }
-        //  you can add extra buttons here.
       ]
+    },
+    {
+      image: require("./assets/images/kiyote-stacked.png"),
+      projectName: "Kiyote",
+      projectDesc: "Lead Management SaaS platform for the education sector"
     },
     {
       image: require("./assets/images/meritLogo.png"),
