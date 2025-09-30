@@ -242,7 +242,13 @@ const bigProjects = {
     {
       image: require("./assets/images/kiyote-stacked.png"),
       projectName: "Kiyote",
-      projectDesc: "Lead Management SaaS platform for the education sector"
+      projectDesc: "Lead Management SaaS platform for the education sector",
+      footerLink: [
+        {
+          name: "Visit GitHub",
+          url: "https://github.com/zackcpetersen/kiyote"
+        }
+      ]
     },
     {
       image: require("./assets/images/meritLogo.png"),
