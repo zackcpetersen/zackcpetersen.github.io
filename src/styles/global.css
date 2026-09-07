@@ -53,6 +53,7 @@ html.js .rail-line.intro { transition: transform var(--d-intro) var(--ease); }
 html.js .row:not(.reached) .node { border-color: var(--line); background: var(--bg); }
 
 .section { padding: 40px 0 8px; }
+.row.stack-row { padding: 14px 0 6px; }
 .section .eyebrow { margin-bottom: 6px; transition: color var(--d-fill) linear; }
 html.js .row:not(.reached) .section .eyebrow { color: var(--muted); }
 .row.reached .section .eyebrow { color: var(--primary); }

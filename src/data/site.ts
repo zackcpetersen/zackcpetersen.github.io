@@ -71,7 +71,7 @@ export const site = {
   },
 
   hero: {
-    eyebrow: "Senior backend engineer / data and platform / Salt Lake City",
+    eyebrow: "Senior backend engineer, Salt Lake City",
     headline: "I build the backend services and data pipelines a product depends on.",
     subhead:
       "Six years in Python, Go, and Postgres, on AWS and Google Cloud. Right now I am at Reserv, where I own the data side of Adjuster Copilot, an artificial intelligence (AI) tool for claims adjusters. We doubled claims accuracy and gave adjusters back 40+ hours a month.",
