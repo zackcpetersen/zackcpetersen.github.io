@@ -4,7 +4,7 @@ import Base from '../layouts/Base.astro';
 import RailRow from '../components/RailRow.astro';
 import Beads from '../components/Beads.astro';
 import { site } from '../data/site';
-import photo from '../assets/photo.jpg';
+import hero from '../assets/hero.jpg';
 ---
 <Base title={site.meta.home.title} description={site.meta.home.description} path="/">
   <RailRow>
@@ -20,7 +20,7 @@ import photo from '../assets/photo.jpg';
           <a class="link" href={site.links[1].url}>LinkedIn</a>
         </div>
       </div>
-      <Image class="photo" src={photo} width={460} height={575} alt="Zack on a trail above a river in the Wasatch" loading="eager" />
+      <Image class="photo" src={hero} width={920} height={1150} widths={[460, 920]} sizes="(max-width: 760px) 96px, 40vw" position="top" alt="Zack Petersen on the Bonneville Salt Flats" loading="eager" />
     </div>
   </RailRow>
 

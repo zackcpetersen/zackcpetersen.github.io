@@ -189,10 +189,14 @@ export const site = {
 
   about: {
     heading: "How I work and where I am.",
-    caption: "On a trail above the river, Wasatch Range",
+    captions: {
+      trail: "On a trail above a river.",
+      ridge: "Up high, hood on.",
+      fishing: "A trout, briefly.",
+    },
     paragraphs: [
       "Before I write code for a pipeline I write down the tables it produces, the columns each one needs, and which downstream model reads them, because a pipeline with a clear contract is one I can hand to a teammate without a meeting. It is the same habit as the numbered steps in my tutorials: write the map first, then do the work in that order.",
-      "I live in Salt Lake City, and when I am not at a keyboard I am usually on a trail in the Wasatch. The photo above is from one of those trails.",
+      "I live in Salt Lake City, and when I am not at a keyboard I am usually on a trail in the Wasatch, or standing in a river. The photos here are from a few of those trips.",
       "I have a Bachelor of Science in Business from the University of Utah, class of 2017. It was not a computer science degree, so I learned to code the way I learn everything else: pick a project, break it into steps, and keep going until it is on the web. The business classes still get used, because I ask what a feature makes or costs before I look at the code.",
       "If you are hiring for backend or data work, want to talk through a pipeline, or have a regex you cannot read, email me. I read every message.",
     ],

@@ -73,7 +73,7 @@ Simple Icons SVGs committed to `src/icons/`, inlined at build, `fill: currentCol
 - No emojis anywhere. Icons are real brand marks.
 - Hover changes color only. No translate, no scale, no shadow growth. Anything hover-only has a visible equivalent on touch.
 - Mobile first: 360px is designed and checked before desktop. Nav is visible text links on mobile, no hamburger. Tap targets 44px.
-- The trail photo is the only image: real, un-ornamented, fixed width and height, no rings or badges.
+- Photos are real and un-ornamented: one in the hero, a few on About, fixed dimensions, no rings or badges, no illustrations.
 - Every in-page anchor has `scroll-margin-top` equal to the header height plus 16px.
 - Copy follows `voice.md`.
 
