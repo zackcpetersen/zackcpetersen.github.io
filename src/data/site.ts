@@ -1,7 +1,6 @@
 /*
  * All content for the site. Copy follows design/voice.md.
  * Every number here traces to a resume bullet with its qualifier intact.
- * DRAFT: first draft, not yet approved by Zack.
  */
 
 export type Tool = { name: string; icon: string; hex: string };
