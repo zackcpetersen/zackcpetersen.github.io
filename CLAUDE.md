@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-Guidance for Claude Code when working in this repository.
+Guidance for Claude Code when working in this repository. `HANDOFF.md` lists the outstanding work and the facts that must not drift; read it at the start of a session.
 
 ## What this is
 
