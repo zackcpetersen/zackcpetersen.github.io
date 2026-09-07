@@ -1,0 +1,19 @@
+---
+import { site } from '../data/site';
+---
+<section class="section sayhi">
+  <p class="eyebrow">Say hi</p>
+  <h2>{site.sayHi.heading}</h2>
+  <p class="lead">{site.sayHi.text}</p>
+  <a class="big" href={`mailto:${site.email}`}>{site.email}</a>
+  <div class="links">
+    {site.links.map(l => <a class="link mono" href={l.url}>{l.label}</a>)}
+  </div>
+</section>
+
+<style>
+  .sayhi h2 { margin-bottom: 8px; }
+  .sayhi .lead { margin-bottom: 18px; }
+  .big { display: inline-block; font-weight: 600; font-size: clamp(1.375rem, 3vw, 2.125rem); letter-spacing: -0.02em; text-decoration: none; color: var(--primary); overflow-wrap: anywhere; }
+  .links { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 18px; }
+</style>

@@ -1,0 +1,80 @@
+@import "./tokens.css";
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: var(--body);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color var(--d-theme) var(--ease), color var(--d-theme) var(--ease);
+}
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; border-radius: 2px; }
+[id] { scroll-margin-top: calc(var(--head-h) + 16px); }
+
+h1, h2, h3 { margin: 0; font-weight: 600; letter-spacing: -0.02em; text-wrap: balance; }
+h1 { font-size: var(--h1); line-height: 1.05; letter-spacing: -0.03em; }
+h2 { font-size: var(--h2); line-height: 1.1; }
+h3 { font-size: var(--h3); line-height: 1.25; font-weight: 500; }
+p { margin: 0; max-width: var(--measure); }
+p + p { margin-top: 0.75em; }
+.lead { font-size: var(--lead); color: var(--muted); }
+.mono { font-family: var(--font-mono); font-size: var(--label); letter-spacing: 0.02em; }
+.eyebrow { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.num { font-variant-numeric: tabular-nums; }
+
+.link { color: var(--muted); text-decoration: none; transition: color var(--d-hover) var(--ease); }
+.link:hover, .link:focus-visible { color: var(--primary); }
+.link-text { color: var(--text); text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 0.2em; transition: text-decoration-color var(--d-hover) var(--ease), color var(--d-hover) var(--ease); }
+.link-text:hover, .link-text:focus-visible { color: var(--primary); text-decoration-color: var(--primary); }
+.btn { display: inline-block; padding: 12px 18px; border-radius: 8px; background: var(--primary); color: #fff; text-decoration: none; font-weight: 500; font-size: 0.9375rem; transition: background-color var(--d-hover) var(--ease); }
+.btn:hover, .btn:focus-visible { background: color-mix(in srgb, var(--primary) 85%, var(--text)); }
+.chip { display: inline-block; font-family: var(--font-mono); font-size: 0.75rem; padding: 4px 10px; border: 1px solid var(--line); border-radius: 999px; color: var(--text); font-variant-numeric: tabular-nums; }
+
+/* ---------- the rail ---------- */
+.rail { position: relative; max-width: var(--max); margin: 0 auto; padding: 8px var(--pad) 40px; }
+.rail-track, .rail-line { position: absolute; top: 0; bottom: 0; left: calc(var(--pad) + var(--gutter) / 2 - 1px); width: 2px; pointer-events: none; }
+.rail-track { background: var(--line); }
+.rail-line { background: var(--primary); transform-origin: top; transform: scaleY(1); }
+html.js .rail-line { transform: scaleY(var(--reach, 0)); }
+html.js .rail-line.intro { transition: transform var(--d-intro) var(--ease); }
+
+.row { display: grid; grid-template-columns: var(--gutter) minmax(0, 1fr); column-gap: 20px; }
+.row > .cell { min-width: 0; }
+.node { justify-self: center; width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--primary); background: var(--primary); margin-top: 8px; transition: border-color var(--d-fill) linear, background-color var(--d-fill) linear; }
+.node.small { width: 10px; height: 10px; margin-top: 16px; }
+.node.end { width: 16px; height: 16px; }
+html.js .row:not(.reached) .node { border-color: var(--line); background: var(--bg); }
+
+.section { padding: 40px 0 8px; }
+.section .eyebrow { margin-bottom: 6px; transition: color var(--d-fill) linear; }
+html.js .row:not(.reached) .section .eyebrow { color: var(--muted); }
+.row.reached .section .eyebrow { color: var(--primary); }
+
+/* ---------- beads (tech icons) ---------- */
+.beads { display: flex; flex-wrap: wrap; gap: 12px 18px; align-items: flex-start; }
+.bead { display: inline-flex; flex-direction: column; align-items: center; gap: 6px; text-decoration: none; }
+.bead .ring { width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid var(--primary); display: grid; place-items: center; color: var(--primary); transition: border-color var(--d-hover) var(--ease), color var(--d-hover) var(--ease), background-color var(--d-hover) var(--ease); }
+.bead .ic { width: 20px; height: 20px; fill: currentColor; }
+.bead .name { font-family: var(--font-mono); font-size: 0.6875rem; color: var(--muted); white-space: nowrap; }
+html.js .row:not(.reached) .bead .ring { border-color: var(--line); color: var(--muted); }
+.rail .bead:hover .ring, .rail .bead:focus-visible .ring { background: color-mix(in srgb, var(--primary) 8%, transparent); border-color: var(--primary); color: var(--brand, var(--primary)); }
+.beads.sm { gap: 8px; }
+.beads.sm .bead .ring { width: 32px; height: 32px; }
+.beads.sm .bead .ic { width: 15px; height: 15px; }
+.beads.sm .bead .name { display: none; }
+
+/* ---------- reduced motion: final state, no timing ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  html.js .rail-line, html.js .rail-line.intro { transform: scaleY(1); transition: none; }
+  html.js .row:not(.reached) .node { border-color: var(--primary); background: var(--primary); }
+  html.js .row:not(.reached) .bead .ring { border-color: var(--primary); color: var(--primary); }
+  html.js .row:not(.reached) .section .eyebrow { color: var(--primary); }
+}

@@ -1,0 +1,25 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import RailRow from '../components/RailRow.astro';
+import { site } from '../data/site';
+import photo from '../assets/photo.jpg';
+---
+<Base title={site.meta.about.title} description={site.meta.about.description} path="/about/">
+  <RailRow>
+    <section class="section">
+      <p class="eyebrow">About</p>
+      <h1 class="h">{site.about.heading}</h1>
+      <Image class="photo" src={photo} width={460} height={460} alt="Zack on a trail above a river in the Wasatch" loading="eager" />
+      <p class="mono cap">{site.about.caption}</p>
+      {site.about.paragraphs.map(p => <p>{p}</p>)}
+      <p><a class="link-text" href={site.resume}>Resume (PDF)</a></p>
+    </section>
+  </RailRow>
+</Base>
+
+<style>
+  .h { font-size: var(--h2); line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 16px; }
+  .photo { width: 100%; max-width: 560px; height: auto; border-radius: 16px; margin: 8px 0 10px; }
+  .cap { color: var(--muted); margin-bottom: 20px; }
+</style>

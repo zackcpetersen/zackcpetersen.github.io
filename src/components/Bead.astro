@@ -1,0 +1,10 @@
+---
+import Icon from './Icon.astro';
+import type { Tool } from '../data/site';
+interface Props { tool: Tool; small?: boolean }
+const { tool, small = false } = Astro.props;
+---
+<span class="bead" style={`--brand:${tool.hex}`} aria-label={tool.name} title={small ? tool.name : undefined}>
+  <span class="ring"><Icon name={tool.icon} /></span>
+  <span class="name" aria-hidden="true">{tool.name}</span>
+</span>

@@ -1,0 +1,79 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import RailRow from '../components/RailRow.astro';
+import Beads from '../components/Beads.astro';
+import { site } from '../data/site';
+import photo from '../assets/photo.jpg';
+---
+<Base title={site.meta.home.title} description={site.meta.home.description} path="/">
+  <RailRow>
+    <div class="hero">
+      <div>
+        <p class="eyebrow">{site.hero.eyebrow}</p>
+        <h1>{site.hero.headline}</h1>
+        <p class="lead">{site.hero.subhead}</p>
+        <div class="cta">
+          <a class="btn" href="/work/">{site.hero.cta}</a>
+          <a class="link" href={site.resume}>Resume</a>
+          <a class="link" href={site.links[0].url}>GitHub</a>
+          <a class="link" href={site.links[1].url}>LinkedIn</a>
+        </div>
+      </div>
+      <Image class="photo" src={photo} width={460} height={575} alt="Zack on a trail above a river in the Wasatch" loading="eager" />
+    </div>
+  </RailRow>
+
+  <RailRow id="what-i-use">
+    <section class="section">
+      <p class="eyebrow">What I use</p>
+      <h2>{site.stack.heading}</h2>
+      <p class="lead">{site.stack.intro}</p>
+    </section>
+  </RailRow>
+  {site.stack.rows.map(row => (
+    <RailRow node="small" class="stack-row">
+      <div class="stack">
+        <p class="eyebrow">{row.label}</p>
+        <Beads tools={row.tools} />
+      </div>
+    </RailRow>
+  ))}
+
+  <RailRow id="work">
+    <section class="section">
+      <p class="eyebrow">Work</p>
+      <h2>{site.workHeading}</h2>
+    </section>
+  </RailRow>
+  {site.workBrief.map(w => (
+    <RailRow>
+      <div class="brief">
+        <div class="brief-top"><h3>{w.company}</h3><span class="mono num">{w.dates}</span></div>
+        <p>{w.text}</p>
+      </div>
+    </RailRow>
+  ))}
+  <RailRow node="none">
+    <p class="more"><a class="link-text" href="/work/">{site.workBriefLink}</a></p>
+  </RailRow>
+</Base>
+
+<style>
+  .hero { display: grid; grid-template-columns: 7fr 5fr; gap: 48px; align-items: start; padding-top: 28px; }
+  .hero h1 { margin: 8px 0 20px; }
+  .cta { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; margin-top: 24px; }
+  .cta .link { font-size: 0.9375rem; }
+  .photo { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 16px; }
+  .stack-row { padding: 12px 0; }
+  .stack .eyebrow { margin-bottom: 10px; }
+  .brief { padding: 16px 0 12px; }
+  .brief-top { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+  .brief-top .mono { color: var(--muted); }
+  .brief p { margin-top: 4px; }
+  .more { padding: 8px 0 24px; }
+  @media (max-width: 760px) {
+    .hero { grid-template-columns: 1fr; gap: 20px; padding-top: 12px; }
+    .photo { width: 96px; height: 96px; aspect-ratio: 1; border-radius: 50%; order: -1; }
+  }
+</style>

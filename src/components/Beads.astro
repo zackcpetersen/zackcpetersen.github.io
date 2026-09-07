@@ -1,0 +1,9 @@
+---
+import Bead from './Bead.astro';
+import type { Tool } from '../data/site';
+interface Props { tools: Tool[]; small?: boolean }
+const { tools, small = false } = Astro.props;
+---
+<div class:list={['beads', small && 'sm']}>
+  {tools.map(t => <Bead tool={t} small={small} />)}
+</div>

@@ -1,0 +1,33 @@
+---
+import Beads from './Beads.astro';
+import type { Role } from '../data/site';
+interface Props { role: Role }
+const { role } = Astro.props;
+---
+<article class="job">
+  <div class="top">
+    <h3>{role.company}</h3>
+    <span class="when mono num">{role.dates.start} to {role.dates.end === 'now' ? <span class="now">now</span> : role.dates.end}</span>
+  </div>
+  <p class="role mono">{role.role}</p>
+  <p class="body">{role.paragraph}</p>
+  {role.project && (
+    <div class="project">
+      <p><strong>{role.project.name}.</strong> {role.project.text} <a class="link-text" href={role.project.url}>{role.project.linkText}</a></p>
+    </div>
+  )}
+  <div class="chips">{role.chips.map(c => <span class="chip">{c}</span>)}</div>
+  <Beads tools={role.tools} small />
+</article>
+
+<style>
+  .job { padding: 22px 0 28px; }
+  .top { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; max-width: var(--measure); }
+  .when { margin-left: auto; color: var(--muted); white-space: nowrap; }
+  .now { color: var(--accent); font-weight: 500; }
+  .role { color: var(--muted); margin: 4px 0 12px; }
+  .body { margin-bottom: 12px; }
+  .project { margin: 0 0 14px; padding: 12px 16px; border-left: 2px solid var(--line); }
+  .project p { max-width: calc(var(--measure) - 4ch); }
+  .chips { display: flex; gap: 8px; flex-wrap: wrap; margin: 0 0 14px; }
+</style>

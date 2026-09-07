@@ -1,0 +1,18 @@
+---
+import Beads from './Beads.astro';
+import type { Project } from '../data/site';
+interface Props { project: Project }
+const { project } = Astro.props;
+---
+<article class="proj">
+  <h3>{project.name}</h3>
+  <p>{project.text}</p>
+  <p><a class="link-text" href={project.url}>{project.linkText}</a></p>
+  <Beads tools={project.tools} small />
+</article>
+
+<style>
+  .proj { padding: 18px 20px; border: 1px solid var(--line); border-radius: 12px; display: flex; flex-direction: column; gap: 10px; height: 100%; }
+  .proj p { max-width: none; }
+  .proj p + p { margin-top: 0; }
+</style>

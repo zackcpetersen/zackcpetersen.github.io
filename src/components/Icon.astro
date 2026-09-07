@@ -1,0 +1,11 @@
+---
+/* Inlines a Simple Icons SVG from src/icons at build time. */
+const files = import.meta.glob('../icons/*.svg', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
+interface Props { name: string; class?: string }
+const { name, class: cls } = Astro.props;
+const raw = files[`../icons/${name}.svg`];
+if (!raw) throw new Error(`Unknown icon: ${name}`);
+const viewBox = raw.match(/viewBox="([^"]+)"/)?.[1] ?? '0 0 24 24';
+const paths = [...raw.matchAll(/<path[^>]*\sd="([^"]+)"/g)].map(m => m[1]);
+---
+<svg class:list={['ic', cls]} viewBox={viewBox} aria-hidden="true" focusable="false">{paths.map(d => <path d={d} />)}</svg>

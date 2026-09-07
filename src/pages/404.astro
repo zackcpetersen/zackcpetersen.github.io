@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro';
+import RailRow from '../components/RailRow.astro';
+import { site } from '../data/site';
+---
+<Base title="Not found, Zack Petersen" description="That page is not here." path="/404/">
+  <RailRow>
+    <section class="section">
+      <p class="eyebrow">404</p>
+      <h1 class="h">{site.notFound.text}</h1>
+      <p><a class="link-text" href="/">{site.notFound.linkText}</a></p>
+    </section>
+  </RailRow>
+</Base>
+
+<style>
+  .h { font-size: var(--h2); line-height: 1.1; margin-bottom: 12px; }
+</style>

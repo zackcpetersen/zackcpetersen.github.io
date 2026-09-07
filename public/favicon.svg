@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- The Waypoint mark: the rail entering a reached node. Keep the geometry inside a 64x64 box. -->
+  <style>
+    .m { fill: #4F46E5; }
+    @media (prefers-color-scheme: dark) { .m { fill: #818CF8; } }
+  </style>
+  <rect class="m" x="30" y="4" width="4" height="26" rx="2"/>
+  <circle class="m" cx="32" cy="42" r="14"/>
+</svg>

@@ -1,0 +1,10 @@
+---
+/* One row of the rail grid. node: 'dot' (default), 'small', 'end', or 'none' for a row without a marker. */
+interface Props { node?: 'dot' | 'small' | 'end' | 'none'; id?: string; class?: string }
+const { node = 'dot', id, class: cls } = Astro.props;
+const marked = node !== 'none';
+---
+<div class:list={['row', cls]} id={id} data-node={marked ? '' : undefined}>
+  {marked ? <div class:list={['node', node === 'small' && 'small', node === 'end' && 'end']} aria-hidden="true"></div> : <div></div>}
+  <div class="cell"><slot /></div>
+</div>

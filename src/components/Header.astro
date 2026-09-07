@@ -1,0 +1,39 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+import { site } from '../data/site';
+interface Props { path: string }
+const { path } = Astro.props;
+const links = [
+  { href: '/work/', label: 'Work' },
+  { href: '/writing/', label: 'Writing' },
+  { href: '/about/', label: 'About' },
+  { href: '#say-hi', label: 'Say hi' },
+];
+---
+<header class="site-head">
+  <div class="inner">
+    <a class="mark" href="/"><span class="dot" aria-hidden="true"></span>zack petersen</a>
+    <nav aria-label="Site">
+      {links.map(l => <a href={l.href} aria-current={l.href === path ? 'page' : undefined}>{l.label}</a>)}
+    </nav>
+    <span class="elev" aria-hidden="true" title={site.readout.legend}>ELEV <b data-elev>{site.readout.low.toLocaleString('en-US')}</b> FT</span>
+    <ThemeToggle />
+  </div>
+</header>
+
+<style>
+  .site-head { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 82%, transparent); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); transition: background-color var(--d-theme) var(--ease); }
+  .inner { max-width: var(--max); margin: 0 auto; height: var(--head-h); padding: 0 var(--pad); display: flex; align-items: center; gap: 28px; }
+  .mark { display: flex; align-items: center; gap: 10px; font-family: var(--font-mono); font-size: 0.875rem; font-weight: 500; text-decoration: none; color: var(--text); }
+  .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--primary); }
+  nav { display: flex; gap: 22px; }
+  nav a { text-decoration: none; color: var(--muted); font-size: 0.9375rem; transition: color var(--d-hover) var(--ease); }
+  nav a:hover, nav a:focus-visible, nav a[aria-current="page"] { color: var(--text); }
+  .elev { margin-left: auto; font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.04em; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .elev b { font-weight: 500; color: var(--accent); }
+  @media (max-width: 760px) {
+    .inner { height: auto; min-height: var(--head-h); padding: 10px var(--pad); flex-wrap: wrap; gap: 10px 14px; }
+    nav { order: 3; width: 100%; gap: 14px; }
+    nav a { font-family: var(--font-mono); font-size: 0.8125rem; padding: 6px 0; }
+  }
+</style>

@@ -1,0 +1,80 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import RailRow from '../components/RailRow.astro';
+import SayHi from '../components/SayHi.astro';
+import { site } from '../data/site';
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+}
+const { title, description, path } = Astro.props;
+const origin = Astro.site?.origin ?? 'https://www.zackcpetersen.com';
+const canonical = origin + path;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Zack Petersen" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={origin + '/og.png'} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FAFAFA" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0B0B12" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="preload" href="/fonts/Inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/JetBrainsMono-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <script is:inline>
+      (function () {
+        var d = document.documentElement;
+        d.classList.add('js');
+        try {
+          var t = localStorage.getItem('theme');
+          if (t === 'dark' || t === 'light') d.setAttribute('data-theme', t);
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <Header path={path} />
+    <main class="rail" data-rail>
+      <div class="rail-track" aria-hidden="true"></div>
+      <div class="rail-line" aria-hidden="true"></div>
+      <slot />
+      <RailRow node="end" id="say-hi">
+        <SayHi />
+      </RailRow>
+    </main>
+    <footer class="foot">
+      <div class="foot-inner">
+        <span class="mono">{site.footer} <a class="link" href={site.source}>Source</a>.</span>
+        <span class="mono legend">{site.readout.legend}</span>
+      </div>
+    </footer>
+    <script>
+      import '../scripts/rail';
+    </script>
+  </body>
+</html>
+
+<style>
+  .foot { border-top: 1px solid var(--line); }
+  .foot-inner { max-width: var(--max); margin: 0 auto; padding: 24px var(--pad); display: flex; flex-wrap: wrap; gap: 8px 24px; color: var(--muted); }
+  .legend { margin-left: auto; }
+</style>

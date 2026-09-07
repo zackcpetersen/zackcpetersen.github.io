@@ -1,0 +1,32 @@
+---
+import Base from '../layouts/Base.astro';
+import RailRow from '../components/RailRow.astro';
+import { site } from '../data/site';
+const fmt = (d: string) => new Date(d + 'T00:00:00Z').toLocaleDateString('en-US', { year: 'numeric', month: 'short', timeZone: 'UTC' });
+---
+<Base title={site.meta.writing.title} description={site.meta.writing.description} path="/writing/">
+  <RailRow>
+    <section class="section">
+      <p class="eyebrow">Writing</p>
+      <h1 class="h">{site.writing.intro}</h1>
+    </section>
+  </RailRow>
+  {site.writing.posts.map(p => (
+    <RailRow node="small">
+      <div class="post">
+        <a class="link-text" href={p.url}>{p.title}</a>
+        <span class="mono num">{fmt(p.date)}</span>
+      </div>
+    </RailRow>
+  ))}
+  <RailRow node="none">
+    <p class="more"><a class="link-text" href={site.links[2].url}>{site.writing.moreLink}</a></p>
+  </RailRow>
+</Base>
+
+<style>
+  .h { font-size: var(--h2); line-height: 1.15; letter-spacing: -0.02em; }
+  .post { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; padding: 12px 0; }
+  .post .mono { margin-left: auto; color: var(--muted); }
+  .more { padding: 16px 0 24px; }
+</style>
