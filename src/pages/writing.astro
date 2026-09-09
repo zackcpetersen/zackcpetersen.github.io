@@ -16,6 +16,7 @@ const fmt = (d: string) => new Date(d + 'T00:00:00Z').toLocaleDateString('en-US'
       <div class="post">
         <a class="link-text" href={p.url}>{p.title}</a>
         <span class="mono num">{fmt(p.date)}</span>
+        {p.blurb && <p class="blurb">{p.blurb}</p>}
       </div>
     </RailRow>
   ))}
@@ -26,7 +27,8 @@ const fmt = (d: string) => new Date(d + 'T00:00:00Z').toLocaleDateString('en-US'
 
 <style>
   .h { font-size: var(--h2); line-height: 1.15; letter-spacing: -0.02em; }
-  .post { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; padding: 12px 0; }
+  .post { display: flex; align-items: baseline; gap: 4px 16px; flex-wrap: wrap; padding: 12px 0; }
   .post .mono { margin-left: auto; color: var(--muted); }
+  .blurb { flex: 0 0 100%; color: var(--muted); margin-top: 2px; }
   .more { padding: 16px 0 24px; }
 </style>

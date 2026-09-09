@@ -20,7 +20,7 @@ import { site } from '../data/site';
 
   <RailRow id="projects">
     <section class="section">
-      <p class="eyebrow">On my own time</p>
+      <p class="eyebrow">{site.projectsEyebrow}</p>
       <h2>{site.projectsIntro}</h2>
     </section>
   </RailRow>
@@ -34,5 +34,5 @@ import { site } from '../data/site';
 <style>
   .h { font-size: var(--h2); line-height: 1.1; letter-spacing: -0.02em; }
   .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; padding: 8px 0 24px; }
-  @media (max-width: 760px) { .grid { grid-template-columns: 1fr; } }
+  @media (max-width: 760px) { .grid { grid-template-columns: minmax(0, 1fr); } }
 </style>

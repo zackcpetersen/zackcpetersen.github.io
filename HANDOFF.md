@@ -13,34 +13,37 @@ Written 2026-09-07 after the cutover. Read this first in a new session, then `de
 
 Everything the site says lives in one file: `src/data/site.ts`. Edit it, run `npm run dev`, look at http://localhost:4321, push to `main`.
 
-Rules are in `design/voice.md`. The short version: full sentences, first person, outcome then the reason, spell out abbreviations on first use per page, every number keeps its resume qualifier ("up to 76%"). Never em-dashes, hedges, hype, or slogan fragments. The copy that shipped was drafted from the Medium articles and the soul page, then judged and linted, but Zack has not edited it yet. Places most likely to need his hand:
+Rules are in `design/voice.md`, including the revision from the evening of 2026-09-07: Zack rejected the casual register and asked for professional, easy-to-read copy with industry terms only where they apply. The copy was rewritten to that direction the same day, with the Reserv work summary folded in.
 
-1. `hero.headline` and `hero.subhead` on the home page.
-2. The three `work[].paragraph` entries on `/work/`. Neutron is the longest.
-3. `about.paragraphs`, especially the first one about how he works.
-4. `sayHi.heading` ("Tell me what you are building.").
-
-Before pushing, scan the file for: `—`, honestly, genuinely, try, hope, maybe, might, helped, worked on, passionate, driven, cutting-edge, innovative, thrive, excited, seamless, robust, scalable, `!`, emoji. The Playwright suite fails on emoji and em-dashes in rendered text; it does not check the other words.
+Before pushing, scan the file for: `—`, honestly, genuinely, try, hope, maybe, might, helped, worked on, passionate, driven, cutting-edge, innovative, thrive, excited, seamless, robust, scalable, `!`, emoji, and the uncontracted forms "I am", "do not", "cannot", "it is" (contract them). The Playwright suite fails on emoji and em-dashes in rendered text; it does not check the other words.
 
 ## Outstanding items
 
-1. **Photo captions are placeholders.** `about.captions` in `site.ts`: "On a trail above a river.", "Up high, hood on.", "A trout, briefly." Only Zack knows where these were taken. The hero alt text says "on the Bonneville Salt Flats", which is a guess from the background.
-2. **Tool icons under each job were inferred, not taken from the resume.** Check `work[].tools` in `site.ts`. The weakest guesses: Google Cloud, Kubernetes, Kafka, and Datadog under Merit; LangChain under Reserv; Postgres under Neutron. The four stack rows on the home page came from the old site's skill list and are fine.
+1. **Photo captions: done 2026-09-07.** Zack confirmed the locations: the Firehole River in Yellowstone, a trail above Jackson Hole, and a cutthroat from the Bob Marshall Wilderness in Montana. The hero alt text still says "on the Bonneville Salt Flats", a read of the background he has not contradicted.
+2. **Some tool icons under each job are still inferred.** Terraform and Datadog under Reserv are resume-backed as of 2026-09-07. Zack chose to keep LangChain under Reserv and Google Cloud, Kubernetes, and Kafka under Merit. The AI tooling row (Claude Code, LangChain, Cursor) comes from the resume's tools list.
 3. **Elevation readout: keep or drop.** The number in the header climbs from 4,226 ft to 11,253 ft with scroll. It is `aria-hidden`, has a `title` and a footer legend. To remove it: delete the `.elev` span in `src/components/Header.astro`, the readout lines in `src/scripts/rail.ts` (search `readout`), and the legend in `src/layouts/Base.astro` and `site.ts`.
-4. **Deprecation warning in the workflow.** Every run logs: "Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4". Fix in `.github/workflows/deploy.yml`: bump `actions/upload-artifact@v4` to `@v7` (latest is v7.0.1). While there, `actions/checkout@v5` and `actions/setup-node@v5` can go to `@v7` (both v7.0.x); `withastro/action@v6` and `actions/deploy-pages@v5` are current. Push, confirm the run is green and the annotation is gone.
+4. **Deprecation warning: done 2026-09-07.** `actions/checkout`, `actions/setup-node`, and `actions/upload-artifact` are on `@v7`; the run was green with no annotations.
 5. **Delete the rollback refs after a week.** `git push origin --delete gh-pages` and `git push origin --delete pre-rebuild`, then remove the rollback sentence from `CLAUDE.md` and this file.
 6. **The 2020 token in git history is dead.** Commit `3dcc665` added a `.env` with a GitHub token; it returns 401 as of 2026-09-07. Nothing to do. History was kept on purpose.
 7. **No analytics.** The old Universal Analytics property was dead and was not replaced. If wanted, Plausible or GA4 is a script tag in `src/layouts/Base.astro`; note the site currently makes zero third-party requests, which is worth keeping.
 8. **Search.** Nothing was submitted anywhere. `https://www.zackcpetersen.com/sitemap-index.xml` exists; Search Console can have it whenever.
-9. **Resume link** points at the S3 PDF from September 2025 (`site.resume`). Update the PDF in S3 when the resume changes; the link stays the same.
+9. **Resume link** points at the S3 PDF (`site.resume`). The S3 file is byte-identical to `~/Desktop/Zachary Petersen, Backend Engineer.pdf` (September 2025) as of 2026-09-07. Update the PDF in S3 when the resume changes; the link stays the same.
+10. **Kiyote's committed dev environment file: closed.** Zack confirmed on 2026-09-07 that the values are unused dev-only settings. The site does not link to that repo.
+11. **timecard's end date is not in the code.** The card now says it "ran from May 2021 into 2024". Evidence: the last commits (2024-02-06) resized ECS and upgraded Postgres, which only happens on a running service; the Wayback Machine's last capture is 2023-12-26; the domain is still registered but has no DNS (checked 2026-09-07). If Zack knows the real end date, change that one sentence in `projects[timecard].text`.
+12. **ai-code-reviewer was dropped from the site** on 2026-09-07 (Zack: obsolete). Its README still says GPT-4 while the code uses `gpt-4o-mini`; nothing on the site depends on it now.
+13. **The copy proposal** (`design/copy-proposal.md`) was deleted after its casual register was rejected; nothing depends on it.
+14. **claude-setup is public** as of 2026-09-07 and linked from `/work/` and `/ai/`. Two leftovers: the personal Notion voice-page URL is still in that repo's history (commit `504b060`; an identifier that needs auth, not a secret; removing it means a history rewrite and force push), and `claude-md/MANIFESTO.md` plus three command files contain em-dashes that contradict the repo's own `CLAUDE.md`.
+15. **Kiyote's one-line description under Neutron** ("the platform the work above went into") is an inference from the old site and the resume's "SaaS platform" wording. Zack should confirm or reword it in `work[Neutron].project.text`.
 
 ## Facts that must not drift
 
 - Career starts May 2020 at Neutron Interactive, so "six years" through 2026.
-- Adjuster Copilot: "doubled claims accuracy", "40+ hours a month" (the resume also says "up to 10 hours weekly" and "over 40 hours weekly" in different places; the site uses the monthly figure on purpose), "28%" faster dbt runs, Docker images "up to 76%" smaller.
+- Copilot: "doubled claims accuracy", "40+ hours a month" (the resume also says "up to 10 hours weekly" and "over 40 hours weekly" in different places; the site uses the monthly figure on purpose), "28%" faster dbt runs, Docker images "up to 76%" smaller.
 - Merit: "more than 250,000 users", "60%" more integration test coverage, "more than 3 million records a day", notifications "can send millions of messages a day" (a capacity claim, keep the "can").
 - Neutron: "75%" shorter release cycles, "over 10 features", matching algorithm behind "over 80% of company revenue", "over 80% code coverage", "two junior engineers".
-- timecard: "over 30,000 entries since May 2021".
+- timecard: "over 30,000 entries", "from May 2021 into 2024" (see item 11).
+- AI page: method only, by Zack's instruction. It names no employer, product, or business, and carries no metrics.
+- Reserv, from the Reserv work summary (Notion, "Reserv work summary - til sept 2026", pasted 2026-09-07), kept generic by Zack's instruction on 2026-09-07: accomplishments only, no vendor names or pricing, no architecture, framework, or protocol names, no internal tool details, nothing that could be considered Reserv IP. On the site: "primary engineer behind Adjuster Copilot"; "four codebases"; "about 20 agent tools"; "raised retrieval accuracy by 64.3 percentage points on de-identified production fixtures"; "four-repository protocol migration"; "about 20 insurance carriers"; "built most of the team's Datadog alerting" (Datadog is on the resume). The product is called "Adjuster Copilot" on the site by Zack's instruction; the summary calls it Copilot.
 - Education: University of Utah, Bachelor of Science in Business, 2017.
 
 ## Working with this repo from Claude Code

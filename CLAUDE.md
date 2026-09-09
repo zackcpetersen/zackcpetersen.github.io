@@ -20,6 +20,7 @@ Zack Petersen's personal site, https://www.zackcpetersen.com. A static Astro sit
 - `src/styles/tokens.css` holds every color, type size, spacing, and motion duration. `src/styles/global.css` has the base styles, the rail, and the beads.
 - `src/layouts/Base.astro` is the one layout: head, theme script, header, rail, Say hi block, footer.
 - `src/components/` are small and single-purpose: `RailRow` (one grid row with a node), `Bead`/`Beads` (tech icons), `Icon` (inlines an SVG from `src/icons/`), `Job`, `Project`, `Header`, `ThemeToggle`, `SayHi`.
+- `src/pages/ai.astro` is the Claude Code page at `/ai/`: the loop, the rules the machine enforces, agents on call, what is still done by hand, and the public setup repo. It describes method only and names no employer, product, or metrics; `design/voice.md` has the rule.
 - `src/scripts/rail.ts` is the only behavior on the site: the reach line, node fill, and the elevation readout.
 - `src/icons/*.svg` are Simple Icons files. Brand hexes sit next to the tool names in `site.ts`.
 - `public/` is served as-is: `CNAME`, fonts, generated brand assets, `robots.txt`.

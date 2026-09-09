@@ -10,10 +10,12 @@ const { role } = Astro.props;
     <span class="when mono num">{role.dates.start} to {role.dates.end === 'now' ? <span class="now">now</span> : role.dates.end}</span>
   </div>
   <p class="role mono">{role.role}</p>
-  <p class="body">{role.paragraph}</p>
+  {role.paragraphs.map(p => <p class="body">{p}</p>)}
   {role.project && (
     <div class="project">
-      <p><strong>{role.project.name}.</strong> {role.project.text} <a class="link-text" href={role.project.url}>{role.project.linkText}</a></p>
+      <p><strong>{role.project.name}.</strong> {role.project.text}{role.project.url && role.project.linkText && (
+        <> <a class="link-text" href={role.project.url}>{role.project.linkText}</a></>
+      )}</p>
     </div>
   )}
   <div class="chips">{role.chips.map(c => <span class="chip">{c}</span>)}</div>

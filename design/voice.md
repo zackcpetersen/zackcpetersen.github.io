@@ -35,3 +35,17 @@ Not live copy. Live copy lives only in `src/data/site.ts`. This is here so futur
 > I build the backend and data systems a product runs on. Senior backend engineer in Salt Lake City, six years in Python, Go, and Postgres, most of it on AWS. Right now I am building artificial intelligence (AI) claims tooling at Reserv.
 
 > I own the data side of Adjuster Copilot, the AI tool that reads a claim file so the adjuster does not have to. We doubled claims accuracy and gave adjusters back 40+ hours a month, mostly by getting clean rows in front of the model: an AWS Textract pipeline into the warehouse, then dbt models on top. Along the way I cut dbt runtimes by 28% and shrank our Docker images by up to 76%, which also removed the vulnerabilities that shipped inside them.
+
+## Revision, 2026-09-07 (evening)
+
+Zack reviewed the "professional but casual" rewrite and rejected the register: "keep it professional and easy to read and understand. use buzzwords where appropriate, but only if they actually apply." The rules above still hold (full sentences, first person, concrete numbers with qualifiers, no em-dashes, no hedges, no hype, spell out abbreviations on first use per page). These replace the earlier casual additions:
+
+- Professional and plain. No jokes, asides, kickers, or rhetorical questions. No "Let's", no "In my opinion", no deadpan lines.
+- Contractions sparingly. "I am" and "it is" are fine; do not force either way.
+- Results over activity. Lead with the outcome, then the method. Raw activity counts do not go on the site.
+- Industry terms are welcome when they are accurate: production, observability, CI/CD, infrastructure as code, event-driven, idempotent, human-in-the-loop, SaaS, LLM. Never as decoration.
+- Headings are plain nouns or plain statements: "Background", "Get in touch.", "What the machine enforces".
+- The AI page describes method only. It names no employer, product, or business, and carries no metrics.
+- The work page calls the personal repositories "public code".
+- Every claim about Reserv traces to the resume or to the Reserv work summary (September 2026), recorded in `HANDOFF.md`.
+- Reserv copy stays generic: accomplishments only, no vendor names or pricing, no architecture, framework, or protocol names, no internal tool details, nothing that could be considered Reserv IP. The product is "Adjuster Copilot".

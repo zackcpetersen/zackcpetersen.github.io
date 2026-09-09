@@ -1,0 +1,78 @@
+---
+import Base from '../layouts/Base.astro';
+import RailRow from '../components/RailRow.astro';
+import { site } from '../data/site';
+const n = (i: number) => String(i + 1).padStart(2, '0');
+---
+<Base title={site.meta.ai.title} description={site.meta.ai.description} path="/ai/">
+  <RailRow>
+    <section class="section">
+      <p class="eyebrow">{site.ai.eyebrow}</p>
+      <h1 class="h">{site.ai.heading}</h1>
+      {site.ai.intro.map(p => <p>{p}</p>)}
+    </section>
+  </RailRow>
+
+  <RailRow id="loop">
+    <section class="section">
+      <h2>{site.ai.loop.heading}</h2>
+      <p class="rules-lead">{site.ai.loop.lead}</p>
+    </section>
+  </RailRow>
+  {site.ai.loop.steps.map((s, i) => (
+    <RailRow node="small">
+      <div class="step">
+        <p class="mono num count">{n(i)}</p>
+        <p><strong>{s.title}</strong> {s.text}</p>
+      </div>
+    </RailRow>
+  ))}
+
+  <RailRow id="rules">
+    <section class="section">
+      <h2>{site.ai.rules.heading}</h2>
+      <p class="rules-lead">{site.ai.rules.lead}</p>
+    </section>
+  </RailRow>
+  {site.ai.rules.items.map(r => (
+    <RailRow node="small">
+      <div class="item">
+        <p><strong>{r.title}</strong> {r.text}</p>
+      </div>
+    </RailRow>
+  ))}
+
+  <RailRow id="on-call">
+    <section class="section">
+      <h2>{site.ai.monitoring.heading}</h2>
+      <p class="after">{site.ai.monitoring.text}</p>
+    </section>
+  </RailRow>
+
+  <RailRow id="by-hand">
+    <section class="section">
+      <h2>{site.ai.byHand.heading}</h2>
+      <p class="after">{site.ai.byHand.text}</p>
+    </section>
+  </RailRow>
+
+  <RailRow node="none">
+    <section class="section">
+      <h2>{site.ai.takeIt.heading}</h2>
+      <p class="after">{site.ai.takeIt.text}</p>
+      <p class="more"><a class="link-text" href={site.ai.takeIt.url}>{site.ai.takeIt.linkText}</a></p>
+    </section>
+  </RailRow>
+</Base>
+
+<style>
+  .h { font-size: var(--h2); line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 16px; }
+  .step { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 16px; align-items: baseline; padding: 12px 0; }
+  .step .count { color: var(--muted); }
+  .item { padding: 12px 0; }
+  .rules-lead, .after { margin-top: 12px; }
+  .more { padding: 12px 0 24px; }
+  @media (max-width: 760px) {
+    .step { column-gap: 12px; }
+  }
+</style>

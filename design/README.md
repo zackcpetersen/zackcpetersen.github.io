@@ -12,16 +12,17 @@ Mockup: `mockups/directions.html`. Open it in a browser, pick the "1 Waypoint" t
 
 ## Who it is for
 
-Hiring managers and recruiters first, clients and consulting leads second. Lead with what he does, how senior he is, and what shipped, with numbers he would defend in an interview. Personality is balanced: professional spine, real voice, Salt Lake City and the Wasatch as the personal motifs, the trail photo as the only image.
+Hiring managers and recruiters first, engineers who want to see how he works second. Lead with what he does, how senior he is, and what shipped, with numbers he would defend in an interview. Personality is balanced: professional spine, real voice, Salt Lake City and the Wasatch as the personal motifs, the trail photo as the only image.
 
 ## Pages
 
 Headings are plain and the same everywhere: **Work**, **What I use**, **Writing**, **About**, **Say hi**.
 
-Every page has: a sticky translucent header (origin dot and wordmark, links Work / Writing / About / Say hi, the elevation readout with a `title` explaining the two numbers, the theme toggle), the rail, a Say hi block the line ends in (email as the large link, then GitHub, LinkedIn, Medium, Resume in mono), and a one-line mono footer (year, Salt Lake City, source link, the readout legend).
+Every page has: a sticky translucent header (origin dot and wordmark, links Work / AI / Writing / About / Say hi, the elevation readout with a `title` explaining the two numbers, the theme toggle), the rail, a Say hi block the line ends in (email as the large link, then GitHub, LinkedIn, Medium, Resume in mono), and a one-line mono footer (year, Salt Lake City, source link, the readout legend).
 
-- `/` hero (mono eyebrow, headline, subhead with what he is doing right now, "See the work" button, Resume / GitHub / LinkedIn text links, trail photo at 4:5 on the right; single column on mobile with a 96px round photo above the eyebrow), What I use (four labeled rows of tool beads, one node each), Work (three company blocks, one or two sentences each, one node each, link to `/work/`), Say hi.
+- `/` hero (mono eyebrow, headline, subhead with what he is doing right now, "See the work" button, Resume / GitHub / LinkedIn text links, trail photo at 4:5 on the right; single column on mobile with a 96px round photo above the eyebrow), What I use (five labeled rows of tool beads, one node each), Work (three company blocks, one or two sentences each, one node each, link to `/work/`), Working with AI (eyebrow, heading, one paragraph on the Claude Code harness, one node, link to `/ai/`), Say hi.
 - `/work/` one block per company, newest first: company and dates on one line, role in mono, a first-person paragraph with the outcome and the reason, two or three metric chips, a bead row. Adjuster Copilot lives inside Reserv, Merit Notifications inside Merit. Then Kiyote, ai-code-reviewer, timecard as side blocks off the rail. Say hi.
+- `/ai/` the Claude Code page: eyebrow, h1, two intro paragraphs, then the loop from ticket to production as seven numbered steps, each on its own small node with a mono number in the gutter of the content column, then the rules the machine enforces, each on its own small node, then a paragraph on agents monitoring production, a paragraph on what is still done by hand, and a portable-parts block with one link to the public setup repo. Say hi.
 - `/writing/` one intro sentence, the Medium posts as a plain list (title, mono date), "More on Medium".
 - `/about/` the photo full column with a mono caption, a few paragraphs (how he works, Salt Lake City, education in one line, how to reach him). Say hi.
 - `/404` one line and a link home, rail fully drawn.
@@ -85,7 +86,7 @@ One source SVG at `src/brand/mark.svg`: a filled indigo circle (the reached node
 
 Seven concepts went through three judges (a design critic, a hiring manager, a frontend engineer). The three survivors are in the mockup.
 
-- **Quiet Shell** (a modern CLI on warm paper, `$ zack --help` as the hero). Cheapest to build. Lost because "engineer made a terminal site" is a recognized genre and it reads cold to non-engineer clients.
+- **Quiet Shell** (a modern CLI on warm paper, `$ zack --help` as the hero). Cheapest to build. Lost because "engineer made a terminal site" is a recognized genre and it reads cold to non-engineer readers.
 - **Broadsheet** (magazine opening spread, giant serif sentence, rules that draw themselves). The most designed and the quietest. Lost because editorial serif portfolios are close to a designer house style and it was the least alive of the three. Its copy register was the closest to Zack's voice and that carried into `voice.md`.
 - **Living pipeline diagram**: a measured SVG path through every node drifts off them on font swap, resize, and the iOS URL bar. Waypoint keeps the reveal idea and drops the measured path.
 - **Topographic contour hero**: a 2026 cliche that needs a week of visual tuning a backend engineer does not want. Waypoint keeps the elevation readout and drops the map.

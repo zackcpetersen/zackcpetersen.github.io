@@ -26,7 +26,7 @@ import hero from '../assets/hero.jpg';
 
   <RailRow id="what-i-use">
     <section class="section">
-      <p class="eyebrow">What I use</p>
+      <p class="eyebrow">{site.stack.eyebrow}</p>
       <h2>{site.stack.heading}</h2>
       <p class="lead">{site.stack.intro}</p>
     </section>
@@ -57,6 +57,15 @@ import hero from '../assets/hero.jpg';
   <RailRow node="none">
     <p class="more"><a class="link-text" href="/work/">{site.workBriefLink}</a></p>
   </RailRow>
+
+  <RailRow id="ai">
+    <section class="section">
+      <p class="eyebrow">{site.aiBrief.eyebrow}</p>
+      <h2>{site.aiBrief.heading}</h2>
+      <p class="ai-text">{site.aiBrief.text}</p>
+      <p class="more"><a class="link-text" href={site.aiBrief.url}>{site.aiBrief.linkText}</a></p>
+    </section>
+  </RailRow>
 </Base>
 
 <style>
@@ -71,6 +80,7 @@ import hero from '../assets/hero.jpg';
   .brief-top .mono { color: var(--muted); }
   .brief p { margin-top: 4px; }
   .more { padding: 8px 0 24px; }
+  .ai-text { margin-top: 12px; }
   @media (max-width: 760px) {
     .hero { grid-template-columns: 1fr; gap: 20px; padding-top: 12px; }
     .photo { width: 96px; height: 96px; aspect-ratio: 1; border-radius: 50%; order: -1; }

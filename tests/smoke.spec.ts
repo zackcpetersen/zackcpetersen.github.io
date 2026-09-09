@@ -1,6 +1,6 @@
 import { test, expect, type Page } from '@playwright/test';
 
-const pages = ['/', '/work/', '/writing/', '/about/'];
+const pages = ['/', '/work/', '/ai/', '/writing/', '/about/'];
 const PRIMARY = { light: 'rgb(79, 70, 229)', dark: 'rgb(129, 140, 248)' };
 const EMOJI = /[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/u;
 
